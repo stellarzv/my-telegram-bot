@@ -3,8 +3,8 @@ import os
 from flask import Flask
 import threading
 
-TOKEN = os.environ.get(8320084044:AAGBwRFEs9TAiVsAqikJ9kn_vj7aeQdfsOg)
-ADMIN_ID = os.environ.get(1873610199)
+TOKEN = os.environ.get("TELEGRAM_TOKEN")
+ADMIN_ID = os.environ.get("ADMIN_ID")
 
 if not TOKEN:
     raise ValueError("TELEGRAM_TOKEN не задан")
