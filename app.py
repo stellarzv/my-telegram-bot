@@ -3,11 +3,14 @@ import os
 from flask import Flask
 import threading
 
-TOKEN = os.environ.get("8320084044:AAGBwRFEs9TAiVsAqikJ9kn_vj7aeQdfsOg")
-ADMIN_ID = int(os.environ.get("1873610199")) if os.environ.get("ADMIN_ID") else None
+TOKEN = os.environ.get(8320084044:AAGBwRFEs9TAiVsAqikJ9kn_vj7aeQdfsOg)
+ADMIN_ID = os.environ.get(1873610199)
 
 if not TOKEN:
-    raise ValueError("TELEGRAM_TOKEN не задан! Добавьте переменную окружения на Render.")
+    raise ValueError("TELEGRAM_TOKEN не задан")
+
+if ADMIN_ID:
+    ADMIN_ID = int(ADMIN_ID)
 
 bot = telebot.TeleBot(TOKEN)
 app = Flask(__name__)
